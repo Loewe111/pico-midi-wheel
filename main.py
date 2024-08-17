@@ -11,18 +11,18 @@ from adafruit_midi.note_on import NoteOn
 from digitalio import DigitalInOut, Direction, Pull
 
 CONF_ENCODERS = [ # A and B pins
-    (board.GP9, board.GP10),
-    (board.GP11, board.GP12)
+    (board.GP12, board.GP11),
+    (board.GP8, board.GP7),
 ]
 
 CONF_BUTTONS = [
     (board.GP13),
-    (board.GP14)
+    (board.GP9),
 ]
 
 BUTTON_OFFSET = 60
 
-midi = adafruit_midi.MIDI(midi_in=usb_midi.ports[0], in_channel=0, midi_out=usb_midi.ports[1], out_channel=0)
+midi = adafruit_midi.MIDI(midi_out=usb_midi.ports[1], out_channel=0)
 
 encoders = []
 for enc in CONF_ENCODERS:
